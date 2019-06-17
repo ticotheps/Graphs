@@ -99,37 +99,39 @@ class Graph:
         breath-first order.
         """
         #  USE A QUEUE DATA STRUCTURE
-        #  (1)  Create an empty Queue to keep track of the visited nodes
-        # visited = set()
-        #  (2)  Create an empty array to hold values for our path
-        # path = []
-        #  (3)  Create an empty Queue and enqueue A PATH TO the starting vertex
-        # q = Queue()
-        # q.enqueue(starting_vertex)
-        #  (4)  While the queue is not empty...
-        # while q.size() > 0:
-            #  (a)  Dequeue the first PATH
-            # v = q.dequeue()
-            #  (b)  Grab the vertex from the end of the path
-            #  (c)  If the vertex = targe, return the path
-            #  (d)  If that vertex has not been visited...
-                #  (i)  Mark it as visited
-                #  (ii)  Then add A PATH TO all of its neighbors to the back
-                #        of the queue.
-                #  (iii)  Copy the path
-                #  (iv)  Append the neighbor to the back of the copy
-                #  (v)   Enqueue the copy
-        pass            
+        #  (1)  Create an empty array to keep track of the visited nodes
+        visited = []
+        #  (2)  Create an empty Queue to hold multiple arrays of 
+        #       different possible paths to be checked
+        queue = [[starting_vertex]]
+        #  (3)  Return path if the starting_vertex is equal to the
+        #       destination_vertex
+        if starting_vertex == destination_vertex:
+            return "The starting_vertex = destination_vertex"
+        #  Keep looping until all possible paths have been visited 
+        while queue:
+            #  Pop the first path from the queue
+            path = queue.pop(0)
+            #  Get the last node from the path
+            node = path[-1]
+            if node not in visited:
+                neighbors = self.vertices[node]
+                #  Go through all the neighbor nodes
+                #  Push each into the queue
+                for neighbor in neighbors:
+                    new_path = list(path)
+                    new_path.append(neighbor)
+                    queue.append(new_path)
+                    #  Return path if neighbor is the destination_vertex
+                    if neighbor == destination_vertex:
+                        print(new_path)
                     
-                    
-                    
-                    
-    # q = [ [1,2,4], [1,2,3,5]]
-    # visited = {1, 2}
-    
-    # path = [1, 2, 3]
-    # v = 3
-    # path_copy = [1, 2, 3, 5]
+                #  Mark node as visited
+                visited.append(node)
+        
+        #  If there is no path between the 2 nodes
+        return "Sorry, there is no connecting path between those two nodes"
+
     def dfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
