@@ -62,12 +62,24 @@
 #  PROBLEM SOLVING WITH GRAPHS:
     #  (1)  Understand/Translate the Problem
     #  (2)  Create the graph
-    #  (3)  Traverse the graph          
+    #  (3)  Traverse the graph 
+        #  "Traversal"?
+            #  Going through an entire data structure to either:
+                #  (a) "touch" (visit) each and every node
+                #  (b) find a specific node
+            #  Traversal of a list = O(n) runtime complexity
+                      
     
 #  BREADTH FIRST SEARCH (BFS) AKA "LEVEL ORDER TRAVERSAL"
     #  -Algorithm used to search a graph, starting at levels closest
     #   to the root and finishing at those furthest away.
-    #  -Searches a graph, moving from outer levels => inner levels 
+    #  -Searches a graph for a particular node by:
+    #     (1) Starting at the root node (or "starting vertex")
+    #     (2) Move down to LEFT-MOST node in the NEXT level (from root)
+    #         and move from LEFT to RIGHT, across that level
+    #     (3) Continue this pattern until either:
+    #             #  (a) you reach the node you're looking for
+    #             #  (b) you reach the end of the tree
     #  -Explores all possible paths to find one with smallest weight,
     #   traversing ACROSS before traversing DOWN.
     #  -USEFUL FOR:

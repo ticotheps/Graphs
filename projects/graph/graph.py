@@ -60,7 +60,8 @@ class Graph:
         beginning from starting_vertex.
         """
         #  ***Use a STACK instead of Queue
-        #  (1) Create an empty STACK and push the starting vertex
+        #  (1) Create an empty STACK to store our scheduled nodes to explore
+        #      and push the starting vertex
         visited = set()
         #  (2) Create an empty set to store visited nodes
         s = Stack()
@@ -84,7 +85,8 @@ class Graph:
         beginning from starting_vertex.
         This should be done using recursion.
         """
-        pass  # TODO
+        #  (1) Create an empty STACK and push the starting vertex into it
+        #  (2) Create 
     def bfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing the shortest path from
@@ -153,10 +155,9 @@ if __name__ == '__main__':
     Should print:
         {1: {2}, 2: {3, 4}, 3: {5}, 4: {6, 7}, 5: {3}, 6: {3}, 7: {1, 6}}
     '''
-    print("---------------------------------------------")
+    print("-----------*** START OF OUR PATH PRINTING ***------------")
     print("Vertices of the Graph:\n") 
     print(graph.vertices)
-    print("\n---------------------------------------------")
 
     '''
     Valid DFT paths:
@@ -165,9 +166,9 @@ if __name__ == '__main__':
         1, 2, 4, 7, 6, 3, 5
         1, 2, 4, 6, 3, 5, 7
     '''
-    print("Depth First TRAVERSAL path for (1, 6):\n",)
+    print("\n", "------------Depth First TRAVERSAL------------")
+    print("Nodes visited (in this order):\n")
     graph.dft(1)
-    print("\n", "---------------------------------------------")
 
     '''
     Valid BFT paths:
@@ -184,9 +185,9 @@ if __name__ == '__main__':
         1, 2, 4, 3, 7, 6, 5
         1, 2, 4, 3, 7, 5, 6
     '''
-    print("Breadth First TRAVERSAL path for (1, 6):\n",)
+    print("\n", "--------------Breadth First TRAVERSAL------------")
+    print("Nodes visited (in this order):\n")
     graph.bft(1)
-    print("\n", "---------------------------------------------")
 
     '''
     Valid DFT recursive paths:
@@ -195,23 +196,23 @@ if __name__ == '__main__':
         1, 2, 4, 7, 6, 3, 5
         1, 2, 4, 6, 3, 5, 7
     '''
-    print("Depth First TRAVERSAL (recursive) path for (1, 6):\n")
+    print("\n", "---------Depth First TRAVERSAL (Recursive)---------")
+    print("Nodes visited (in this order):\n")
     graph.dft_recursive(1)
-    print("\n", "---------------------------------------------")
 
     '''
     Valid BFS path:
         [1, 2, 4, 6]
     '''
-    print("Breadth First SEARCH path for (1, 6):\n")
+    print("\n", "-------------Breadth First SEARCH----------")
+    print("Nodes visited (in this order):\n")
     graph.bfs(1, 6)
-    print("\n", "---------------------------------------------")
 
     '''
     Valid DFS paths:
         [1, 2, 4, 6]
         [1, 2, 4, 7, 6]
     '''
-    print("Depth First SEARCH path for (1, 6):\n")
+    print("\n", "------------Depth First SEARCH-----------")
+    print("Nodes visited (in this order):\n")
     graph.dfs(1, 6)
-    print("\n", "---------------------------------------------")
