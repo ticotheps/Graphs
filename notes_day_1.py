@@ -119,6 +119,8 @@
         #  -Traversing strongly connected components
     #  -REMEMBER:
         #  -***DFS NEVER revisits nodes
+        #  -DFS requires LESS memory than BFS b/c not necessary to store
+        #   all child pointers
         
     #  -STEPS FOR TRAVERSAL:
     #  (1)  Create a STACK to hold a list of nodes to explore
@@ -130,3 +132,51 @@
             #      by adding them to the STACK
     #  (4)  Mark vertex as 'explored' by removing it from the STACK
 
+#  SIMILARITIES between BFS vs DFS
+    #  -BFS (with a QUEUE) runtime complexity = O(n), 
+    #   where "n" = # of nodes
+    #  -BFS (with a QUEUE) space complexity = O(n), 
+    #   because, worst case, you'll still need to hold 
+    #   all the vertices in the queue.
+    
+    #  -DFS runtime complexity = O(n), where "V" = # of nodes
+    #  -DFS (recursive with a QUEUE) space complexity = O(h), where 
+    #   "h" = max depth of tree
+    #  -DFS (iterative with a STACK) space complexity = O(n), where 
+    #   "n" = # of nodes
+    
+#  BFS PROS
+    #  -Great for finding the shortest path between a starting point
+    #   and any other reachable node.
+    #  -If a node of interest is likely at the upper level of the 
+    #   tree/graph, BFS will be better/faster.
+    
+#  BFS CONS
+    #  -Requires more memory than DFS.
+    
+#  DFS PROS
+    #  -Requires LESS memory than BFS.
+    #  -Better for determining if a path exists between two nodes.
+    
+#  DFS CONS
+    #  -Traversal can get slow for large trees.
+
+#  BFS vs DFS
+
+#  If you know a solution is NOT far from the root of the tree: 
+    #  BFS
+    
+#  If the tree is very deep and solutions are RARE: 
+    #  BFS (because DFS will take too long)
+    
+#  If the tree is very WIDE:
+    #  DFS (because BFS will need too much memory)
+    
+#  If solutions are frequent but located deep in the tree:
+    #  DFS
+    
+#  Determining whether a path exists between two nodes: 
+    #  DFS
+    
+#  Finding the shortest path:
+    #  BFS
