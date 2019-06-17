@@ -63,3 +63,27 @@
     #  (1)  Understand/Translate the Problem
     #  (2)  Create the graph
     #  (3)  Traverse the graph          
+    
+#  BREADTH FIRST SEARCH (BFS) AKA "LEVEL ORDER TRAVERSAL"
+    #  -Searches a graph, moving from outer levels => inner levels 
+    #  -***Useful for providing the SHORTEST path to get to a given node.
+    #  -***Cannot perform BFS recursively.
+    #  -STEPS FOR TRAVERSAL:
+    #  (1)  Start at the root node
+    #  (2)  Move from outer => inner, as deep as possible, through children
+    #       nodes.
+    #  (3)  Resolve the remaining nodes, moving from outer => inner as well
+    
+
+#  DEPTH FIRST SEARCH (DFS)
+    #  -Searches a graph, moving from parent => children nodes 
+    #  -It is like a 3-line recursive search algorithm
+    #  -Goes as deep as possible with each parent => child before moving
+    #   next node.
+    #  -STEPS FOR TRAVERSAL:
+    #  (1)  Start at the root node
+    #  (2)  Move from outer => inner, as deep as possible, through children
+    #       nodes.
+    #  (3)  Resolve the remaining nodes, moving from outer => inner as well
+    
+

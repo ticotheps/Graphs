@@ -25,7 +25,21 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        #  (1) Create an empty Queue
+        #  (2) Create an empty set to store visited nodes
+        #  (3) While the queue is not empty...
+            #  (a) Dequeue the first vertex
+            #  (b) If that verter has not been visited...
+                #  (i) Mark it as visited
+                #  (ii) Then, add all of its neighbors to the 
+                #       back of the queue
+             
+        # Step-by-Step Process for bft   
+        # visited = {1, 2, 3, 4, 5, 7, 6}
+        # queue = []
+        # print: 1, 2, 3, 4, 5, 7, 6
+            
+        # v = 
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
