@@ -138,7 +138,15 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
-        pass  # TODO
+        s = Stack()
+        s = [(starting_vertex, [starting_vertex])] 
+        while s:
+            (vertex, path) = s.pop()
+            for next in self.vertices[vertex] - set(path):
+                if next == destination_vertex:
+                    return path + [next]
+                else:
+                    s.append((next, path + [next]))
 
 
 
