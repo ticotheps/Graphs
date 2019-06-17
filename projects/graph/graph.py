@@ -1,7 +1,7 @@
 """
 Simple graph implementation
 """
-from util import Stack, Queue  # These may come in handy
+from util import Stack, Queue  #  These may come in handy
 
 class Graph:
     """Represents a graph as a dictionary of vertices mapping labels to edges."""
@@ -11,7 +11,7 @@ class Graph:
         """
         Adds a vertex to the graph.
         """
-        self.vertices[vertex] = set()  #  (1) Creates a node or vertex in the set
+        self.vertices[vertex] = set()  #  (1)  Creates a node or vertex in the set
     def add_edge(self, v1, v2):
         """
         Adds a directed edge to the graph.
@@ -29,29 +29,29 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        #  (1) Create an empty Queue
+        #  (1)  Create an empty Queue
         visited = set()
-        #  (2) Create an empty set to store visited nodes
+        #  (2)  Create an empty set to store visited nodes
         q = Queue()
         q.enqueue(starting_vertex)
-        #  (3) While the queue is not empty...
+        #  (3)  While the queue is not empty...
         while q.size() > 0:
-            #  (a) Dequeue the first vertex
+            #  (a)  Dequeue the first vertex
             v = q.dequeue()
-            #  (b) If that vertex has not been visited...
+            #  (b)  If that vertex has not been visited...
             if v not in visited:
-                #  (i) Mark it as visited
+                #  (i)  Mark it as visited
                 visited.add(v)
                 print(v)
-                #  (ii) Then, add all of its neighbors to the 
-                #       back of the queue
+                #  (ii)  Then, add all of its neighbors to the 
+                #        back of the queue
                 for neighbor in self.vertices[v]:
                     q.enqueue(neighbor)
              
-        # Step-by-Step Process for bft   
-        # visited = {1, 2, 3, 4, 5, 7, 6}
-        # queue = []
-        # print: 1, 2, 3, 4, 5, 7, 6
+        #  Step-by-Step Process for bft   
+        #  visited = {1, 2, 3, 4, 5, 7, 6}
+        #  queue = []
+        #  print: 1, 2, 3, 4, 5, 7, 6
             
         # v = 
     def dft(self, starting_vertex):
@@ -60,53 +60,66 @@ class Graph:
         beginning from starting_vertex.
         """
         #  ***Use a STACK instead of Queue
-        #  (1) Create an empty STACK to store our scheduled nodes to explore
-        #      and push the starting vertex
+        #  (1)  Create an empty STACK to store our scheduled nodes to explore
+        #       and push the starting vertex
         visited = set()
-        #  (2) Create an empty set to store visited nodes
+        #  (2)  Create an empty set to store visited nodes
         s = Stack()
         s.push(starting_vertex)
-        #  (3) While the queue is not empty...
+        #  (3)  While the stack is not empty...
         while s.size() > 0:
-            #  (a) Pop the first vertex
+            #  (a)  Pop the first vertex
             v = s.pop()
-            #  (b) If that vertex has not been visited...
+            #  (b)  If that vertex has not been visited...
             if v not in visited:
-                #  (i) Mark it as visited
+                #  (i)  Mark it as visited
                 visited.add(v)
                 print(v)
-                #  (ii) Then, add all of its neighbors to the 
-                #       back of the queue
+                #  (ii)  Then, add all of its neighbors to the 
+                #        back of the queue
                 for neighbor in self.vertices[v]:
                     s.push(neighbor)
-    def dft_recursive(self, starting_vertex):
+    def dft_recursive(self, starting_vertex, path=[]):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         This should be done using recursion.
         """
-        #  (1) Create an empty STACK and push the starting vertex into it
-        #  (2) Create 
+        path += [starting_vertex]
+        
+        for neighbor in self.vertices[starting_vertex]:
+            if neighbor not in path:
+                self.dft_recursive(neighbor, path)
+        print(path)   
+        
     def bfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing the shortest path from
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        
-        #  (1) Create an empty set to store visited nodes
-        #  (2) Create an empty Queue and enqueue A PATH TO the starting vertex
-        #  (3) While the queue is not empty...
-            #  (a) Dequeue the first PATH
-            #  (b) GRAB THE VERTEX FROM THE END OF THE PATH
-            #  (c) If that vertex has not been visited...
-                #  (i) Mark it as visited
-                #  (ii) Then, add A PATH TO all of its neighbors to the 
-                #       back of the queue
-                #  (iii) Copy the path
-                #  (iv) Append the neighbor to the back of the copy
-                #  (v) Enqueue the copy
-                    
+        #  USE A QUEUE DATA STRUCTURE
+        #  (1)  Create an empty Queue to keep track of the visited nodes
+        # visited = set()
+        #  (2)  Create an empty array to hold values for our path
+        # path = []
+        #  (3)  Create an empty Queue and enqueue A PATH TO the starting vertex
+        # q = Queue()
+        # q.enqueue(starting_vertex)
+        #  (4)  While the queue is not empty...
+        # while q.size() > 0:
+            #  (a)  Dequeue the first PATH
+            # v = q.dequeue()
+            #  (b)  Grab the vertex from the end of the path
+            #  (c)  If the vertex = targe, return the path
+            #  (d)  If that vertex has not been visited...
+                #  (i)  Mark it as visited
+                #  (ii)  Then add A PATH TO all of its neighbors to the back
+                #        of the queue.
+                #  (iii)  Copy the path
+                #  (iv)  Append the neighbor to the back of the copy
+                #  (v)   Enqueue the copy
+        pass            
                     
                     
                     
