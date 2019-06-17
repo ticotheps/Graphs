@@ -75,8 +75,8 @@
         #  -Providing the SHORTEST path to get to a given node
         #  -Suggesting people you may know in social networks
     #  -REMEMBER:
-    #  -***BFS NEVER revisits nodes
-    #  -***You cannot perform BFS recursively.
+        #  -***BFS NEVER revisits nodes
+        #  -***You cannot perform BFS recursively.
     
     #  -STEPS FOR TRAVERSAL:
     #  (1)  Create a queue to hold a list of nodes to explore
@@ -85,19 +85,31 @@
         #  (a) while there are unscheduled vertices that are one edge 
         #      away from the current vertex...
             #  (i) schedule these adjacent vertices to be explored 
-            #      using a [queue]
-    #  (4)  Mark vertex as explored (remove from queue)
+            #      by adding them to the queue
+    #  (4)  Mark vertex as 'explored' by removing it from the queue
     
 
 #  DEPTH FIRST SEARCH (DFS)
-    #  -Searches a graph, moving from parent => children nodes 
+    #  -Algorithm used to search a graph, traversing each branch, down
+    #   to its deepest level BEFORE exploring another branch.
+    #  -Explores all possible paths to find one with smallest weight,
+    #   traversing DOWN a branch before traversing ACROSS the same level.
     #  -It is like a 3-line recursive search algorithm
     #  -Goes as deep as possible with each parent => child before moving
     #   next node.
+    #  -USEFUL FOR:
+        #  -Finding the ONE, correct solution for a maze
+        #  -Traversing strongly connected components
+    #  -REMEMBER:
+        #  -***DFS NEVER revisits nodes
+        
     #  -STEPS FOR TRAVERSAL:
-    #  (1)  Start at the root node
-    #  (2)  Move from outer => inner, as deep as possible, through children
-    #       nodes.
-    #  (3)  Resolve the remaining nodes, moving from outer => inner as well
-    
+    #  (1)  Create a STACK to hold a list of nodes to explore
+    #  (2)  Add starting vertex (s) to the STACK
+    #  (3)  Start exploration, beginning with the starting vertex (s)
+        #  (a) while there are unscheduled vertices that are one edge 
+        #      away from the current vertex (moving DOWN the branch)...
+            #  (i) schedule these adjacent vertices to be explored 
+            #      by adding them to the STACK
+    #  (4)  Mark vertex as 'explored' by removing it from the STACK
 
