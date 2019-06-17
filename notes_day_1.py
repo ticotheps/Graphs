@@ -57,4 +57,9 @@
             #  -SPARSE graph = a graph that has a low number of edges 
             #   for each node.
             #  -DENSE graph = a graph that has a high number of edges 
-            #   for each node.            
+            #   for each node.   
+
+#  PROBLEM SOLVING WITH GRAPHS:
+    #  (1)  Understand/Translate the Problem
+    #  (2)  Create the graph
+    #  (3)  Traverse the graph          
