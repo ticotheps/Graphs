@@ -65,14 +65,28 @@
     #  (3)  Traverse the graph          
     
 #  BREADTH FIRST SEARCH (BFS) AKA "LEVEL ORDER TRAVERSAL"
+    #  -Algorithm used to search a graph, starting at levels closest
+    #   to the root and finishing at those furthest away.
     #  -Searches a graph, moving from outer levels => inner levels 
-    #  -***Useful for providing the SHORTEST path to get to a given node.
-    #  -***Cannot perform BFS recursively.
+    #  -Explores all possible paths to find one with smallest weight,
+    #   traversing ACROSS before traversing DOWN.
+    #  -USEFUL FOR:
+        #  -Routing or path-finding problems (i.e. - google maps)
+        #  -Providing the SHORTEST path to get to a given node
+        #  -Suggesting people you may know in social networks
+    #  -REMEMBER:
+    #  -***BFS NEVER revisits nodes
+    #  -***You cannot perform BFS recursively.
+    
     #  -STEPS FOR TRAVERSAL:
-    #  (1)  Start at the root node
-    #  (2)  Move from outer => inner, as deep as possible, through children
-    #       nodes.
-    #  (3)  Resolve the remaining nodes, moving from outer => inner as well
+    #  (1)  Create a queue to hold a list of nodes to explore
+    #  (2)  Add starting vertex (s) to the queue
+    #  (3)  Start exploration, beginning with the starting vertex (s)
+        #  (a) while there are unscheduled vertices that are one edge 
+        #      away from the current vertex...
+            #  (i) schedule these adjacent vertices to be explored 
+            #      using a [queue]
+    #  (4)  Mark vertex as explored (remove from queue)
     
 
 #  DEPTH FIRST SEARCH (DFS)
