@@ -71,6 +71,8 @@
     #  -Explores all possible paths to find one with smallest weight,
     #   traversing ACROSS before traversing DOWN.
     #  -USEFUL FOR:
+        #  -Solving a problem where you know the solution is very CLOSE
+        #   to the root
         #  -Routing or path-finding problems (i.e. - google maps)
         #  -Providing the SHORTEST path to get to a given node
         #  -Suggesting people you may know in social networks
@@ -98,7 +100,10 @@
     #  -Goes as deep as possible with each parent => child before moving
     #   next node.
     #  -USEFUL FOR:
-        #  -Finding the ONE, correct solution for a maze
+        #  -Solving a problem where you know the solution is very FAR
+        #   from the root
+        #  -Finding the ONE, correct solution amongst many
+        #   #  -i.e. - finding the correct path in a maze
         #  -Traversing strongly connected components
     #  -REMEMBER:
         #  -***DFS NEVER revisits nodes
