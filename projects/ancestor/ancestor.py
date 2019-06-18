@@ -48,18 +48,22 @@ class Graph:
         else:
             #  Thow an error
             raise IndexError("That vertex does not exist!")
-          
+     
     def earliest_ancestor(self, starting_vertex):
         visited = set()
         q = Queue()
         q.enqueue(starting_vertex)
         while q.size() > 0:
-          current = q.dequeue()
-          if current not in visited:
-              visited.add(current)
-              print(current)
-              for neighbor in self.vertices[current]:
-                  q.enqueue(neighbor)
+            current = q.dequeue()
+            if current not in visited:
+                visited.add(current)
+                # print(current)
+                for neighbor in self.vertices[current]:
+                    q.enqueue(neighbor)
+        if current == starting_vertex:
+            print(f"starting_vertex: {starting_vertex}; earliest known ancestor: ", -1)
+        else:
+            print(f"starting_vertex: {starting_vertex}; earliest known ancestor: ", current)
         
 if __name__ == '__main__':
     graph = Graph()
@@ -74,18 +78,32 @@ if __name__ == '__main__':
     graph.add_vertex(6)
     graph.add_vertex(7)
     graph.add_vertex(9)
-    graph.add_edge(1, 3)
-    graph.add_edge(2, 3)
-    graph.add_edge(3, 6)
-    graph.add_edge(5, 6)
-    graph.add_edge(5, 7)
-    graph.add_edge(4, 5)
-    graph.add_edge(4, 8)
-    graph.add_edge(8, 9)
-    graph.add_edge(11, 8)
-    graph.add_edge(10, 1)
+    graph.add_edge(3, 1)
+    graph.add_edge(3, 2)
+    graph.add_edge(6, 3)
+    graph.add_edge(6, 5)
+    graph.add_edge(7, 5)
+    graph.add_edge(5, 4)
+    graph.add_edge(8, 4)
+    graph.add_edge(9, 8)
+    graph.add_edge(8, 11)
+    graph.add_edge(1, 10)
 
-    graph.earliest_ancestor(10)
+    graph.earliest_ancestor(10)  #  Should print -1
+    graph.earliest_ancestor(1)  #  Should print 10
+    graph.earliest_ancestor(3)  #  Should print 10
+    graph.earliest_ancestor(6)  #  Should print 10
+    graph.earliest_ancestor(2)  #  Should print -1
+    graph.earliest_ancestor(5)  #  Should print 4
+    graph.earliest_ancestor(4)  #  Should print -1
+    graph.earliest_ancestor(7)  #  Should print 4
+    graph.earliest_ancestor(8)  #  Should print 4
+    graph.earliest_ancestor(9)  #  Should print 4
+    graph.earliest_ancestor(11)  #  Should print -1
+
+
+
+
 
 
 #-------------------------Reflecting/Iterating---------------------------
