@@ -79,33 +79,24 @@ class Graph:
                 #        back of the queue
                 for neighbor in self.vertices[v]:
                     s.push(neighbor)
-    def dft_recursive(self, starting_vertex, path=[]):
+                    
+    def dft_recursive(self, starting_vertex, visited=set()):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         This should be done using recursion.
         """
-        path += [starting_vertex]
-        
-        for neighbor in self.vertices[starting_vertex]:
-            if neighbor not in path:
-                self.dft_recursive(neighbor, path)
-        print(path)   
+        #  If the node hasn't been visited...
+        if starting_vertex not in visited:
+            #  Mark the node as visited
+            print(starting_vertex)
+            visited.add(starting_vertex)
+            #  Then call DFT_Recursive on each neighbor
+            for neighbor in self.vertices[starting_vertex]:
+                self.dft_recursive(neighbor, visited)
+            
         
     def bfs(self, starting_vertex, destination_vertex):
-        # BFS
-        # Create an empty set to store visited nodes
-        # Create an empty Queue and enqueue A PATH TO the starting vertex
-        # While the queue is not empty...
-            # Dequeue the first PATH
-            # GRAB THE VERTEX FROM THE END OF THE PATH
-            # IF VERTEX = TARGET, RETURN PATH
-            # If that vertex has not been visited...
-                # Mark it as visited
-                # Then add A PATH TO all of its neighbors to the back of the queue
-                    # Copy the path
-                    # Append neighbor to the back of the copy
-                    # Enqueue copy
         """
         Return a list containing the shortest path from
         starting_vertex to destination_vertex in
@@ -248,7 +239,7 @@ if __name__ == '__main__':
     '''
     print("\n", "-------------Breadth First SEARCH----------")
     print("Nodes visited (in this order):\n")
-    graph.bfs(1, 6)
+    print(graph.bfs(1, 6))
 
     '''
     Valid DFS paths:
@@ -257,4 +248,4 @@ if __name__ == '__main__':
     '''
     print("\n", "------------Depth First SEARCH-----------")
     print("Nodes visited (in this order):\n")
-    graph.dfs(1, 6)
+    print(graph.dfs(1, 6))
