@@ -112,20 +112,29 @@ class Graph:
         breath-first order.
         """
         visited = set()
-        
+        #  Create an empty queue and enqueue a path to the starting_vertex
         q = Queue()
         q.enqueue( [starting_vertex] )
-        
+        #  While the queue is not empty...
         while q.size() > 0:
+            #  Dequeue the first path
             path = q.dequeue()
+            #  Grab the vertex from the end of the path
             v = path[-1]
+            #  If vertex == target, return path
             if v == destination_vertex:
                 return path
+            #  If that vertex has not been visited...
             if v not in visited:
+                #  Mark it as visited
                 visited.add(v)
+                #  Then add a path to all of its neighbors to the back of the queue
                 for neighbor in self.vertices[v]:
+                    #  Copy the path 
                     path_copy = list(path)
+                    #  Append the neighbor to the back of the copy
                     path_copy.append(neighbor)
+                    #  Enqueue copy
                     q.enqueue(path_copy)
 
     def dfs(self, starting_vertex, destination_vertex):
