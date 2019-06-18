@@ -111,6 +111,7 @@ class Graph:
         starting_vertex to destination_vertex in
         breath-first order.
         """
+        #  Create an empty set to store visited nodes
         visited = set()
         #  Create an empty queue and enqueue a path to the starting_vertex
         q = Queue()
@@ -143,19 +144,32 @@ class Graph:
         starting_vertex to destination_vertex in
         depth-first order.
         """
+        #  Create an empty set to store visited nodes
+        visited = set()
+        #  Create an empty Stack and push A PATH TO the starting_vertex
         s = Stack()
-        s = [(starting_vertex, [starting_vertex])] 
-        while s:
-            (vertex, path) = s.pop()
-            for next in self.vertices[vertex] - set(path):
-                if next == destination_vertex:
-                    print(path + [next])
-                else:
-                    s.append((next, path + [next]))
-
-
-
-
+        s.push( [starting_vertex] )
+        #  While the stack is not empty...
+        while s.size() > 0:
+            #  Pop the first path
+            path = s.pop()
+            #  Grab the vertex from the end of the path
+            v = path[-1]
+            #  If vertex == target, return path
+            if v == destination_vertex:
+                return path
+            #  If that vertex has not been visited...
+            if v not in visited:
+                #  Mark it as visited
+                visited.add(v)
+                #  Then add a path to all of its neighbors to the back of the stack
+                for neighbor in self.vertices[v]:
+                    #  Copy the path 
+                    path_copy = list(path)
+                    #  Append the neighbor to the back of the copy
+                    path_copy.append(neighbor)
+                    #  Push copy
+                    s.push(path_copy)
 
 if __name__ == '__main__':
     graph = Graph()  # Instantiate your graph
