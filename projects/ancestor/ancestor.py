@@ -101,9 +101,4 @@ if __name__ == '__main__':
     graph.earliest_ancestor(9)  #  Should print 4
     graph.earliest_ancestor(11)  #  Should print -1
 
-
-
-
-
-
 #-------------------------Reflecting/Iterating---------------------------
