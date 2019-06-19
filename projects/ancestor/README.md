@@ -21,11 +21,11 @@ For example, in this diagram and the sample input, 3 is a child of 1 and 2, and 
 ```
  g.g.ma(10)
     /
-g.ma(1) g.pa(2)
-    \   /
-    mom(3)  dad(5)
-       \   /   \
-       me(5)   s.sis(7)
+g.ma(1)   g.pa(2)
+    \     /
+     mom(3)   dad(5)
+       \     /   \
+        me(5)   s.sis(7)
 ```
 
 Write a function that, given the dataset and the ID of an individual in the dataset, returns their earliest known ancestor – the one at the farthest distance from the input individual. If there is more than one ancestor tied for "earliest", return the one with the lowest numeric ID. If the input individual has no parents, the function should return -1.
