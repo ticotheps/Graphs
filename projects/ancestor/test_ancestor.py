@@ -1,7 +1,6 @@
 import unittest
-from ancestor import Graph
+from ancestor import earliest_ancestor
 
-earliest_ancestor = Graph.earliest_ancestor
 
 class Test(unittest.TestCase):
 
