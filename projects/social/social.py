@@ -6,8 +6,8 @@ class User:
 
 class SocialGraph:
     def __init__(self):
-        self.lastID = 0
-        self.users = {}
+        self.lastID = 0  # Used as a counter for total number of users in social graph
+        self.users = {}  # Individiual nodes in the graph
         self.friendships = {}
 
     def addFriendship(self, userID, friendID):
@@ -24,11 +24,11 @@ class SocialGraph:
 
     def addUser(self, name):
         """
-        Create a new user with a sequential integer ID
+        Creates a new user with a sequential integer ID
         """
         self.lastID += 1  # automatically increment the ID to assign the new user
-        self.users[self.lastID] = User(name)
-        self.friendships[self.lastID] = set()
+        self.users[self.lastID] = User(name)  # intantiates a new user
+        self.friendships[self.lastID] = set()  # creates an empty node in the graph (with no connections)
 
     def populateGraph(self, numUsers, avgFriendships):
         """
@@ -40,15 +40,22 @@ class SocialGraph:
 
         The number of users must be greater than the average number of friendships.
         """
-        # Reset graph
+        # (1) Reset graph
         self.lastID = 0
         self.users = {}
         self.friendships = {}
-        # !!!! IMPLEMENT ME
-
-        # Add users
-
-        # Create friendships
+        # (2) Create a graph
+        sg = SocialGraph()
+        # (3) Add users
+        # (3a) Use for loop to iterate through 'numUsers'
+        for user in range(numUsers):
+            self.addUser(user)
+        # (3b) For each user, randomly generate a number of friendships based on the
+        #      'avgFriendships' parameter
+        # (4) Check to see that graph has been created and populated properly
+        
+        # sg.populateGraph(10, 2)
+        # print(sg.friendships)
 
     def getAllSocialPaths(self, userID):
         """
