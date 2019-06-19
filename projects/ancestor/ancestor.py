@@ -12,15 +12,18 @@
 #---------------------------Devising a Plan------------------------------
 
 #  (1) Create an empty set to store visited nodes
-#  (2) Create an empty Queue and enqueue the input node
+#  (2) Create an empty Queue and enqueue the input node (starting_vertex)
 #  (3) While the queue is NOT empty...
-    #  (a) Dequeue the first node and set equal to a variable, "v"
-    #  (b) If "v" is not in the list of visited nodes...
+    #  (a) Dequeue the first node and set equal to a variable, "current"
+    #  (b) If "current" is not in the list of visited nodes...
     #  (c) Then, add it to the set of visited nodes
     #  (d) Print the node
     #  (e) Use a for loop to find the node's neighbors and add them to the
     #      back of the queue
-#  If there are no ancestors, return -1
+#  Constraints:
+#  (1) If there are no ancestors, return -1
+#  (2) If there are multiple ancestors, return the one with the lower
+#      numerical ID
 
 #------------------------Implementing the Plan---------------------------
 
