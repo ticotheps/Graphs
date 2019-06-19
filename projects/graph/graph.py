@@ -29,9 +29,9 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        #  (1)  Create an empty Queue
+        #  (1)  Create an empty set to store visited nodes
         visited = set()
-        #  (2)  Create an empty set to store visited nodes
+        #  (2)  Create an empty Queue and enqueue the starting_vertex
         q = Queue()
         q.enqueue(starting_vertex)
         #  (3)  While the queue is not empty...
@@ -163,6 +163,16 @@ class Graph:
                     path_copy.append(neighbor)
                     #  Push copy
                     s.push(path_copy)
+                    
+# start = 1
+# target = 3
+
+# stack = [ [1, 2, 3], [1, 2, 4, 6], [1, 2, 4, 7] ] 
+# visited = {1, 2, 4, 7}       
+
+# path = [1, 2, 4, 7]
+# v = 7
+# path_copy = [1, 2, 4, 7]           
 
 if __name__ == '__main__':
     graph = Graph()  # Instantiate your graph
