@@ -54,7 +54,7 @@ class SocialGraph:
         possible_num_friendships = [0, 1, 2, 3, 4]
         # (4c) Create a list of possible users to be friends with
         friends_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        # # (4d) Shuffle the list of friends
+        # (4d) Shuffle the list of friends
         possible_num_friendships = (numUsers/avgFriendships)
         for i in range(numUsers):
             random_index = random.randint(0, len(friends_list)-1)
@@ -67,6 +67,9 @@ class SocialGraph:
             #  If the number ISN'T in the list, add it
             #  If the number is in the random_friends_list, don't add it
             random_friends_list.append(friends_list[random_index])
+        #  Insert each friend from random_friends_list into each user's key
+        # for k in random_friends_list:
+            self.addFriendship(1, 7)
         print("List of Random Friends: ", random_friends_list)
         
                 
